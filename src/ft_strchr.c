@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/30 20:06:53 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/04/30 21:34:08 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:28:13 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int i;
+	size_t i;
 
 	if (c == '\0')
 		return ((char *)s + ft_strlen(s));

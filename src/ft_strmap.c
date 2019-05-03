@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 12:36:57 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/02 15:32:08 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 13:01:21 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int		i;
+	size_t	i;
 	char	*result;
 
 	result = 0;

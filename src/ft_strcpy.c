@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 18:27:23 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/04/29 18:30:40 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:27:04 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*ft_strcpy(char *dst, const char *src)
 {
-	int i;
+	size_t i;
 
 	i = -1;
 	while (src[++i])

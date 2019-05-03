@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 10:06:36 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/01 22:18:06 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 13:15:27 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *str)
 {
-	int i;
-	int sign;
-	int result;
+	size_t	i;
+	int		sign;
+	int		result;
 
 	i = 0;
 	result = 0;

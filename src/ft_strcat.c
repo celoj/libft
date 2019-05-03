@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 19:20:22 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/04/30 22:41:34 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:27:37 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 char	*ft_strcat(char *s1, const char *s2)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	j = 0;

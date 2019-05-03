@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:25:56 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/02 13:27:22 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 13:29:03 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,12 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void				*ft_memset(void *b, int c, size_t len);
+void				ft_free2darr(char **container, size_t container_size);
+void				**ft_2dmemreset(void **b, size_t len);
+char				*ft_strrev(char *s);
+size_t				ft_strcmplen(const char *s1, const char *s2);
+char				*ft_strtolower(char *s);
+char				*ft_strtoupper(char *s);
+void				ft_swap(int *a, int *b);
 
 #endif

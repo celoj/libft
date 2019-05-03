@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 09:41:25 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/02 20:42:13 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:54:52 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 {
 	unsigned char	*ucs1;
 	unsigned char	*ucs2;
-	int				i;
+	size_t			i;
 
 	i = 0;
 	ucs1 = (unsigned char *)s1;

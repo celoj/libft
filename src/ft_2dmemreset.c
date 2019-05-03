@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_2dmemreset.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 23:50:31 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/03 12:53:16 by dcelojev         ###   ########.fr       */
+/*   Created: 2019/05/03 11:19:18 by dcelojev          #+#    #+#             */
+/*   Updated: 2019/05/03 11:19:51 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	**ft_2dmemreset(void **b, size_t len)
 {
-	int length;
+	unsigned char	**d;
+	size_t			i;
 
-	length = ft_strlen(s);
-	if (c == '\0')
-		return ((char *)s + length);
-	while (--length >= 0)
-		if (s[length] == (char)c)
-			return ((char *)s + length);
-	return (0);
+	i = -1;
+	d = (unsigned char **)b;
+	while (++i < len)
+		d[i] = 0;
+	return (b);
 }

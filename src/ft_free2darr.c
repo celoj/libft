@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_free2darr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 23:50:31 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/03 12:53:16 by dcelojev         ###   ########.fr       */
+/*   Created: 2019/05/03 11:20:22 by dcelojev          #+#    #+#             */
+/*   Updated: 2019/05/03 11:20:26 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+void	ft_free2darr(char **container, size_t container_size)
 {
-	int length;
+	size_t i;
 
-	length = ft_strlen(s);
-	if (c == '\0')
-		return ((char *)s + length);
-	while (--length >= 0)
-		if (s[length] == (char)c)
-			return ((char *)s + length);
-	return (0);
+	i = 0;
+	if (container)
+	{
+		while (i < container_size)
+			if (container[i++])
+				free(container[i - 1]);
+		free(container);
+	}
 }

@@ -6,7 +6,7 @@
 #    By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/21 15:36:34 by dcelojev          #+#    #+#              #
-#    Updated: 2019/05/02 22:03:28 by dcelojev         ###   ########.fr        #
+#    Updated: 2019/05/03 13:29:21 by dcelojev         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,7 +75,14 @@ SRC =	src/ft_memalloc.c 	\
 		src/ft_lstadd.c		\
 		src/ft_lstiter.c	\
 		src/ft_lstmap.c		\
-		src/ft_memset.c
+		src/ft_memset.c		\
+		src/ft_free2darr.c	\
+		src/ft_2dmemreset.c	\
+		src/ft_strrev.c		\
+		src/ft_strcmplen.c	\
+		src/ft_strtolower.c	\
+		src/ft_strtoupper.c	\
+		src/ft_swap.c		\
 
 OBJ = 	ft_memalloc.o		\
 		ft_bzero.o			\
@@ -136,7 +143,14 @@ OBJ = 	ft_memalloc.o		\
 		ft_lstadd.o			\
 		ft_lstiter.o		\
 		ft_lstmap.o			\
-		ft_memset.o
+		ft_memset.o			\
+		ft_free2darr.o		\
+		ft_2dmemreset.o		\
+		ft_strrev.o			\
+		ft_strcmplen.o		\
+		ft_strtolower.o		\
+		ft_strtoupper.o		\
+		ft_swap.o			\
 
 all: $(NAME)
 

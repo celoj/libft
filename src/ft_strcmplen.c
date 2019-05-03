@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strcmplen.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 23:50:31 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/03 12:53:16 by dcelojev         ###   ########.fr       */
+/*   Created: 2019/05/03 13:09:44 by dcelojev          #+#    #+#             */
+/*   Updated: 2019/05/03 13:09:46 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(const char *s, int c)
+size_t	ft_strcmplen(const char *s1, const char *s2)
 {
-	int length;
-
-	length = ft_strlen(s);
-	if (c == '\0')
-		return ((char *)s + length);
-	while (--length >= 0)
-		if (s[length] == (char)c)
-			return ((char *)s + length);
-	return (0);
+	return (ft_strlen(s1) == ft_strlen(s2));
 }

@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 17:59:40 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/01 18:01:19 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 12:15:40 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_putendl(char const *s)
 {
-	ft_putstr(s);
+	if (s)
+		ft_putstr(s);
 	write(1, "\n", 1);
 }

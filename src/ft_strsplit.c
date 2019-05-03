@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:44:26 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/02 21:42:10 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 10:57:49 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@ static size_t	getnexttokenlen(char const *s, char delimiter, size_t start)
 	return (length - start);
 }
 
+static char		**alloc_failed(char **tokens, size_t token_count)
+{
+	ft_free2darr(tokens, token_count);
+	return (0);
+}
+
 char			**ft_strsplit(char const *s, char c)
 {
 	int		i;
@@ -54,7 +60,7 @@ char			**ft_strsplit(char const *s, char c)
 	token_count = counttokens(s, c);
 	if (!(tokens = (char **)malloc((token_count + 1) * sizeof(char *))))
 		return (0);
-	tokens[token_count] = 0;
+	ft_2dmemreset((void **)tokens, token_count + 1);
 	token_index = -1;
 	s_index = 0;
 	while (++token_index < token_count)
@@ -62,7 +68,7 @@ char			**ft_strsplit(char const *s, char c)
 		while (s[s_index] == c)
 			s_index++;
 		if (!(tokens[token_index] = ft_strnew(getnexttokenlen(s, c, s_index))))
-			return (0);
+			return (alloc_failed(tokens, token_index));
 		i = 0;
 		while (s[s_index] != c)
 			tokens[token_index][i++] = s[s_index++];
