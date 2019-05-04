@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:44:26 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/03 10:57:49 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 18:14:27 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static size_t	counttokens(char const *s, char delimiter)
 {
-	int		i;
+	size_t	i;
 	size_t	tokens;
 
 	i = 0;
@@ -49,7 +49,7 @@ static char		**alloc_failed(char **tokens, size_t token_count)
 
 char			**ft_strsplit(char const *s, char c)
 {
-	int		i;
+	size_t	i;
 	size_t	s_index;
 	size_t	token_index;
 	size_t	token_count;
