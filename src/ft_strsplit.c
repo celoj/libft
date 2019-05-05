@@ -6,39 +6,41 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/01 15:44:26 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/03 18:14:27 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/03 21:15:12 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	counttokens(char const *s, char delimiter)
+static size_t	count_tokens(char const *s, char c)
 {
-	size_t	i;
-	size_t	tokens;
+	size_t i;
+	size_t token_count;
 
 	i = 0;
-	tokens = 0;
+	token_count = 0;
 	while (s[i])
 	{
-		while (s[i] && s[i] == delimiter)
-			i++;
-		if (s[i])
-			tokens++;
-		while (s[i] && s[i] != delimiter)
+		if (s[i] != c)
+		{
+			token_count++;
+			while (s[i] && s[i] != c)
+				i++;
+		}
+		else
 			i++;
 	}
-	return (tokens);
+	return (token_count);
 }
 
-static size_t	getnexttokenlen(char const *s, char delimiter, size_t start)
+static size_t	gntl(char const *s, char c, size_t start)
 {
 	size_t length;
 
-	length = start;
-	while (s[length] && s[length] != delimiter)
+	length = 0;
+	while (s[start + length] && s[start + length] != c)
 		length++;
-	return (length - start);
+	return (length);
 }
 
 static char		**alloc_failed(char **tokens, size_t token_count)
@@ -49,29 +51,29 @@ static char		**alloc_failed(char **tokens, size_t token_count)
 
 char			**ft_strsplit(char const *s, char c)
 {
-	size_t	i;
+	char	**tokens;
 	size_t	s_index;
 	size_t	token_index;
 	size_t	token_count;
-	char	**tokens;
+	size_t	j;
 
 	if (!s)
-		return (NULL);
-	token_count = counttokens(s, c);
-	if (!(tokens = (char **)malloc((token_count + 1) * sizeof(char *))))
 		return (0);
-	ft_2dmemreset((void **)tokens, token_count + 1);
+	token_count = count_tokens(s, c) + 1;
+	if (!(tokens = (char **)ft_memalloc(token_count * sizeof(*tokens))))
+		return (0);
+	tokens[token_count - 1] = 0;
 	token_index = -1;
 	s_index = 0;
-	while (++token_index < token_count)
+	while (++token_index < token_count - 1)
 	{
 		while (s[s_index] == c)
 			s_index++;
-		if (!(tokens[token_index] = ft_strnew(getnexttokenlen(s, c, s_index))))
+		if (!(tokens[token_index] = ft_strnew(gntl(s, c, s_index))))
 			return (alloc_failed(tokens, token_index));
-		i = 0;
-		while (s[s_index] != c)
-			tokens[token_index][i++] = s[s_index++];
+		j = 0;
+		while (j < gntl(s, c, s_index - j))
+			tokens[token_index][j++] = s[s_index++];
 	}
 	return (tokens);
 }
