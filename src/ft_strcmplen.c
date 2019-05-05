@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 13:09:44 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/03 13:09:46 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/05/04 20:05:11 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 size_t	ft_strcmplen(const char *s1, const char *s2)
 {
-	return (ft_strlen(s1) == ft_strlen(s2));
+	return (!((!s1 && s2) || (s1 && !s2)) && ft_strlen(s1) == ft_strlen(s2));
 }
