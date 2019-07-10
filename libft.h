@@ -6,7 +6,7 @@
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/29 10:25:56 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/03 13:29:03 by dcelojev         ###   ########.fr       */
+/*   Updated: 2019/06/23 23:35:25 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
+# include <stddef.h>
+# include <math.h>
+
+# define ABS(x) (x < 0 ? -(x) : x)
 
 typedef struct		s_list
 {
@@ -31,6 +36,7 @@ void				*ft_memmove(void *dst, const void *src, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
 size_t				ft_strlen(const char *s);
+size_t				ft_wstrlen(const wchar_t *s);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
@@ -68,7 +74,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
-size_t				ft_numlength(long n);
+size_t				ft_numlength(long long n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
@@ -91,5 +97,34 @@ size_t				ft_strcmplen(const char *s1, const char *s2);
 char				*ft_strtolower(char *s);
 char				*ft_strtoupper(char *s);
 void				ft_swap(int *a, int *b);
-
+char				*ft_lltoa_base(long long n, int base,
+		int capitalize);
+char				*ft_ltoa_base(long n, int base,
+		int capitalize);
+char				*ft_ulltoa_base(unsigned long long n,
+		int base, int capitalize);
+int					ft_putnbr_ll(long long n);
+int					ft_putnbr_size_t(size_t n);
+int					ft_putnbr_intmax_t(intmax_t n);
+int					ft_putnbr_ptrdiff_t(ptrdiff_t n);
+int					ft_putnbr_ull(unsigned long long n);
+int					ft_putnbr_uintmax_t(uintmax_t n);
+int					ft_putstr_ret(const char *s);
+char				*ft_uimttoa_base(uintmax_t n, int base,
+		int capitalize);
+char				*ft_sttoa_base(size_t n, int base,
+		int capitalize);
+char				*ft_pdttoa_base(ptrdiff_t n, int base,
+		int capitalize);
+char				*ft_imttoa_base(intmax_t n, int base,
+		int capitalize);
+void				ft_printbits(void *data, size_t size);
+char				*ft_stoa_base(short n, int base,
+		int capitalize);
+char				*ft_itoa_base(int n, int base,
+		int capitalize);
+char				*ft_dtoa(double f, unsigned int precision,
+		int capitalize);
+char				*ft_ldtoa(long double f, unsigned int precision,
+		int capitalize);
 #endif

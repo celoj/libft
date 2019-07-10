@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_printbits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 17:07:34 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/28 16:54:53 by dcelojev         ###   ########.fr       */
+/*   Created: 2019/06/06 15:34:06 by dcelojev          #+#    #+#             */
+/*   Updated: 2019/06/06 15:51:59 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+void		ft_printbits(void *data, size_t size)
 {
-	long long	num;
-	char		*result;
-	size_t		resultlen;
+	char	*bytes;
+	size_t	i;
+	size_t	j;
+	size_t	total;
+	char	b[(size * 8) + 1];
 
-	num = (long long)n;
-	result = 0;
-	resultlen = ft_numlength(num);
-	if (!(result = ft_strnew(resultlen)))
-		return (0);
-	if (num == 0)
-		result[0] = '0';
-	else if (num < 0)
+	i = 0;
+	total = size * 8;
+	bytes = (char *)data;
+	b[size] = 0;
+	while (i < size)
 	{
-		num *= -1;
-		result[0] = '-';
+		j = 0;
+		while (j < 8)
+		{
+			b[total--] = ((int)(bytes[i] >> j) & 1) + '0';
+			j++;
+		}
+		i++;
 	}
-	while (num > 0)
-	{
-		result[--resultlen] = (num % 10) + '0';
-		num /= 10;
-	}
-	return (result);
+	i = 0;
+	while (b[i])
+		ft_putchar(b[i++]);
+	ft_putchar('\n');
 }
