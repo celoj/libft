@@ -1,39 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_wstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcelojev <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/01 17:07:34 by dcelojev          #+#    #+#             */
-/*   Updated: 2019/05/28 16:54:53 by dcelojev         ###   ########.fr       */
+/*   Created: 2019/04/29 14:26:46 by dcelojev          #+#    #+#             */
+/*   Updated: 2019/06/04 01:15:56 by dcelojev         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_itoa(int n)
+size_t	ft_wstrlen(const wchar_t *s)
 {
-	long long	num;
-	char		*result;
-	size_t		resultlen;
+	size_t len;
 
-	num = (long long)n;
-	result = 0;
-	resultlen = ft_numlength(num);
-	if (!(result = ft_strnew(resultlen)))
-		return (0);
-	if (num == 0)
-		result[0] = '0';
-	else if (num < 0)
-	{
-		num *= -1;
-		result[0] = '-';
-	}
-	while (num > 0)
-	{
-		result[--resultlen] = (num % 10) + '0';
-		num /= 10;
-	}
-	return (result);
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }
